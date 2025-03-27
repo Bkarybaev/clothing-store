@@ -28,6 +28,7 @@ public class Product {
     private String characteristic;
     private Boolean isFavorite;
     private String madeln;
+    @Enumerated(EnumType.STRING)
     private Category category;
 
 

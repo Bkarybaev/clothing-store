@@ -3,6 +3,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/clothing_store
     username: postgres
     password: baiel123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   security:
     jwt:
       secret_key: peaksofthousejava18
