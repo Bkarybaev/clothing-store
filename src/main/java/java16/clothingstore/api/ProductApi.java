@@ -2,6 +2,9 @@ package java16.clothingstore.api;
 
 import java16.clothingstore.dto.response.ProductResponse;
 import java16.clothingstore.dto.response.ProductResponseFindById;
+import java16.clothingstore.dto.response.UserBasketResponse;
+import java16.clothingstore.service.BasketProductService;
+import java16.clothingstore.service.BasketUserService;
 import java16.clothingstore.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +16,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductApi {
     private final ProductService productService;
+    private final BasketProductService basketProductService;
+    private final BasketUserService basketUserService;
 
     //  1. Бардык продуктыларды алып жатканда Категория жана
     //  прайс аркылуу фильтрация болуш керек жана прайс боюнча сортировка болуш керек
@@ -49,4 +54,16 @@ public class ProductApi {
         return productService.findAllFavoritesByUserId(id);
     }
 
+//    7. Корзинага продукты кошуп кайра очуруп салган метол болсун
+    @PostMapping("/addBasketRemoveBasket/{p_id}/{u_id}")
+    public String saveBasketRemoveBasket(@PathVariable Long p_id, @PathVariable Long u_id) {
+       return basketProductService.saveBasketRemoveBasket(p_id,u_id);
+    }
+
+    //8. Бир User’дин корзинасындагы бардык товарларды алып чыгып жана
+    // ошол товарлардын санын жана суммасын чыгара турган метод болсун
+    @GetMapping("/getBasketUserId")
+    public UserBasketResponse getBasketUserId() {
+       return basketUserService.getBasketUserId();
+    }
 }

@@ -14,8 +14,7 @@ import java16.clothingstore.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -78,4 +77,6 @@ public class ProductServiceImpl implements ProductService {
     public List<?> findAllFavoritesByUserId(Long id) {
         return productRepoJdbc.findAllFavoritesByUserId(id);
     }
+
+
 }

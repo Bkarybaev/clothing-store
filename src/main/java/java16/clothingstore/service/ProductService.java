@@ -13,4 +13,5 @@ public interface ProductService {
     String saveFavorites(Long id, Boolean favorite,Long userId);
 
     List<?> findAllFavoritesByUserId(Long id);
+
 }

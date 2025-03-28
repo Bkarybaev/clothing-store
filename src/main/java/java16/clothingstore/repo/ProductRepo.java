@@ -14,4 +14,8 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
     @Query("UPDATE Product p SET p.isFavorite = :favorite WHERE p.id = :id")
     void updateFavoriteProduct(@Param("id") Long id, @Param("favorite") Boolean favorite);
 
+    default Product findByIdException(Long id){
+        return findById(id).orElseThrow(()->new RuntimeException("Product not found"));
+    }
+
 }

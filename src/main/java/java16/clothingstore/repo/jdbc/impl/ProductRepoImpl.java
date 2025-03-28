@@ -139,32 +139,4 @@ public class ProductRepoImpl implements ProductRepoJdbc {
             return product;
         });
     }
-//
-//    @Override
-//    public List<?> findAllFavoritesByUserId(Long id) {
-//        String sql = """
-//            SELECT p.id AS productId,
-//                   p.name,
-//                   p.characteristic,
-//                   p.category,
-//                   p.price,
-//                   (SELECT COUNT(*) FROM favorites f WHERE f.product_id = p.id) AS favoriteCount
-//            FROM products p
-//            WHERE p.id IN (SELECT f.product_id FROM favorites f WHERE f.user_id = :id)
-//            """;
-//
-//        MapSqlParameterSource params = new MapSqlParameterSource("id", id);
-//        NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
-//
-//        return namedParameterJdbcTemplate.query(sql, params, (rs, rowNum) -> {
-//            ProductResponseFindById product = new ProductResponseFindById();
-//            product.setId(rs.getLong("productId"));
-//            product.setName(rs.getString("name"));
-//            product.setCharacteristic(rs.getString("characteristic"));
-//            product.setCategory(rs.getString("category"));
-//            product.setPrice(rs.getBigDecimal("price"));
-//            product.setFavourite(rs.getInt("favoriteCount"));
-//            return product;
-//        });
-//    }
 }
