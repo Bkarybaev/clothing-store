@@ -25,7 +25,7 @@ public class Product {
     private BigDecimal price;
     private String characteristic;
     private Boolean isFavorite;
-    private String madeln;
+    private String madel;
     @Enumerated(EnumType.STRING)
     private Category category;
 
@@ -45,5 +45,7 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<Comment> comments = new ArrayList<>();
+
+
 
 }
