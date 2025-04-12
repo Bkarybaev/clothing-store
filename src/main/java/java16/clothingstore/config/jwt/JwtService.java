@@ -40,7 +40,6 @@ public class JwtService {
         //signatura
         return builder.sign(Algorithm.HMAC256(SECRET_KEY));
     }
-
     public User verifyToken(String token) {
         String email = JWT
                 .require(Algorithm.HMAC256(SECRET_KEY))
